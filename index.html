@@ -1,174 +1,687 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Spectral by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="landing is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ameen Chougle — Computer Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#16283d;
+    --bg-panel:#1c3253;
+    --bg-panel-2:#132030;
+    --ink:#eef3f2;
+    --ink-dim:#c7d3d8;
+    --accent:#ff9f45;
+    --accent-2:#6fd6c4;
+    --grid:rgba(238,243,242,0.07);
+    --line:rgba(238,243,242,0.16);
+    --radius:2px;
+    --mono: 'JetBrains Mono', monospace;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0/40px 40px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/40px 40px,
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Spectral</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Generic</a></li>
-											<li><a href="elements.html">Elements</a></li>
-											<li><a href="#">Sign Up</a></li>
-											<li><a href="#">Log In</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+  ::selection{background:var(--accent); color:var(--bg-panel-2);}
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Spectral</h2>
-							<p>Another fine responsive<br />
-							site template freebie<br />
-							crafted by <a href="http://html5up.net">HTML5 UP</a>.</p>
-							<ul class="actions special">
-								<li><a href="#" class="button primary">Activate</a></li>
-							</ul>
-						</div>
-						<a href="#one" class="more scrolly">Learn More</a>
-					</section>
+  :focus-visible{
+    outline:2px solid var(--accent-2);
+    outline-offset:3px;
+  }
 
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Arcu aliquet vel lobortis ata nisl<br />
-								eget augue amet aliquet nisl cep donec</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="icons major">
-								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
-							</ul>
-						</div>
-					</section>
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent-2);
+    display:flex;
+    align-items:center;
+    gap:.6em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px; height:1px;
+    background:var(--accent-2);
+    display:inline-block;
+  }
 
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
-								<h2>Magna primis lobortis<br />
-								sed ullamcorper</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-								<h2>Tortor dolore feugiat<br />
-								elementum magna</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
-								<h2>Augue eleifend aliquet<br />
-								sed condimentum</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-							</div>
-						</section>
-					</section>
+  h1,h2,h3{ font-family:var(--display); font-weight:600; letter-spacing:-0.01em; }
 
-				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Accumsan mus tortor nunc aliquet</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="features">
-								<li class="icon fa-paper-plane">
-									<h3>Arcu accumsan</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-laptop">
-									<h3>Ac Augue Eget</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-code">
-									<h3>Mus Scelerisque</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-headphones-alt">
-									<h3>Mauris Imperdiet</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-heart">
-									<h3>Aenean Primis</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-flag">
-									<h3>Tortor Ut</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-							</ul>
-						</div>
-					</section>
+  /* ---------- Corner registration marks (used on panels) ---------- */
+  .sheet{
+    position:relative;
+    border:1px solid var(--line);
+    background:var(--bg-panel);
+    border-radius:var(--radius);
+  }
+  .sheet::before,.sheet::after,
+  .sheet .rm-tl,.sheet .rm-br{ content:""; }
+  .reg{
+    position:absolute;
+    width:10px; height:10px;
+    pointer-events:none;
+  }
+  .reg::before,.reg::after{
+    content:"";
+    position:absolute;
+    background:var(--ink-dim);
+    opacity:.5;
+  }
+  .reg::before{ width:10px; height:1px; top:5px; left:0; }
+  .reg::after{ width:1px; height:10px; left:5px; top:0; }
+  .reg.tl{ top:-1px; left:-1px; }
+  .reg.tr{ top:-1px; right:-1px; }
+  .reg.bl{ bottom:-1px; left:-1px; }
+  .reg.br{ bottom:-1px; right:-1px; }
 
-				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>Arcue ut vel commodo</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
-							</header>
-							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">Activate</a></li>
-								<li><a href="#" class="button fit">Learn More</a></li>
-							</ul>
-						</div>
-					</section>
+  /* ---------- Layout shell ---------- */
+  .rail{
+    position:fixed;
+    top:0; left:0; bottom:0;
+    width:88px;
+    border-right:1px solid var(--line);
+    background:var(--bg-panel-2);
+    z-index:50;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:28px 0;
+  }
+  .rail .mark{
+    width:42px; height:42px;
+    border:1px solid var(--accent);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-weight:700; font-size:.85rem;
+    color:var(--accent);
+    margin-bottom:40px;
+    flex-shrink:0;
+  }
+  .rail nav{ display:flex; flex-direction:column; gap:26px; align-items:center; flex:1;}
+  .rail nav a{
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.08em;
+    color:var(--ink-dim);
+    writing-mode:vertical-rl;
+    text-orientation:mixed;
+    display:flex; align-items:center; gap:10px;
+    transition:color .2s ease;
+  }
+  .rail nav a .num{ color:var(--accent-2); font-weight:700; }
+  .rail nav a:hover, .rail nav a.active{ color:var(--ink); }
+  .rail nav a.active .num{ color:var(--accent); }
+  .rail .foot-tag{
+    font-family:var(--mono); font-size:.6rem; color:var(--ink-dim);
+    writing-mode:vertical-rl; opacity:.5; letter-spacing:.1em;
+  }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+  .mobile-bar{
+    display:none;
+    position:fixed; top:0; left:0; right:0; height:56px;
+    background:var(--bg-panel-2);
+    border-bottom:1px solid var(--line);
+    align-items:center; justify-content:space-between;
+    padding:0 18px;
+    z-index:60;
+  }
+  .mobile-bar .mark{
+    width:32px; height:32px; border:1px solid var(--accent); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-weight:700; font-size:.72rem; color:var(--accent);
+  }
+  .menu-btn{
+    background:none; border:1px solid var(--line); color:var(--ink);
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.08em;
+    padding:8px 12px; border-radius:var(--radius); cursor:pointer;
+  }
+  .mobile-menu{
+    display:none;
+    position:fixed; top:56px; left:0; right:0; bottom:0;
+    background:var(--bg-panel-2);
+    z-index:59;
+    padding:24px;
+    flex-direction:column;
+    gap:2px;
+  }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    font-family:var(--mono); font-size:.85rem; letter-spacing:.06em;
+    color:var(--ink-dim); padding:16px 4px; border-bottom:1px solid var(--line);
+  }
+  .mobile-menu a .num{ color:var(--accent-2); margin-right:10px; }
 
-			</div>
+  main{ margin-left:88px; }
+  section{ padding:64px 64px; max-width:1440px; margin:0 auto; }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+@media (max-width:900px){
+  section{ padding:48px 24px; }
+}
 
-	</body>
+  /* ---------- Hero ---------- */
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+    align-items:end;
+    min-height:70vh;
+  }
+  .name-row{
+  display:flex;
+  align-items:flex-end;
+  gap:22px;
+  margin:18px 0 20px;
+  flex-wrap:wrap;
+}
+.hero-copy h1{
+  font-size:clamp(2.6rem, 6vw, 4.6rem);
+  line-height:1.02;
+  margin:0;
+}
+.hero-copy h1 span{ color:var(--accent); }
+
+.photo-frame{
+  width:160px; height:160px;
+  flex-shrink:0;
+  margin-bottom:6px;
+  overflow:hidden;
+  position:relative;
+  border-radius:50%;
+  box-shadow:0 12px 32px rgba(0,0,0,0.45);
+}
+@media (max-width:500px){
+  .photo-frame{ width:120px; height:120px; }
+}
+.photo-frame img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+}
+.photo-placeholder{
+  display:none;
+  width:100%; height:100%;
+  align-items:center; justify-content:center;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:.08em;
+  color:var(--ink-dim);
+  line-height:1.5;
+}
+@media (max-width:500px){
+  .photo-frame{ width:84px; height:84px; }
+}
+  .hero-copy p{
+    color:var(--ink-dim);
+    font-size:1.05rem;
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{
+    font-family:var(--mono); font-size:.75rem; letter-spacing:.03em;
+    border:1px solid var(--line); padding:9px 14px; border-radius:var(--radius);
+    color:var(--ink-dim);
+    display:flex; align-items:center; gap:8px;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .chip:hover{ border-color:var(--accent-2); color:var(--ink); }
+  .chip .dot{ width:6px; height:6px; border-radius:50%; background:var(--accent-2); }
+
+  .scope{
+    padding:0; overflow:hidden; aspect-ratio:4/3;
+  }
+  .scope-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 16px; border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:.65rem; color:var(--ink-dim); letter-spacing:.08em;
+  }
+  .scope svg{ width:100%; height:100%; display:block; }
+  .wave-path{
+    fill:none; stroke:var(--accent-2); stroke-width:2;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 2.6s ease-out .3s forwards;
+  }
+  .wave-path.b{ stroke:var(--accent); opacity:.55; animation-delay:.6s; }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .scope-cursor{
+    fill:var(--accent);
+    offset-path: path("M10,90 Q60,90 90,50 T170,50 T250,50 T330,50");
+    animation: travel 4.5s linear infinite;
+  }
+  @keyframes travel{
+    0%{ offset-distance:0%; }
+    100%{ offset-distance:100%; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .wave-path{ animation:none; stroke-dashoffset:0; }
+    .scope-cursor{ animation:none; }
+  }
+
+  /* ---------- Title block ---------- */
+  .title-block{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--line);
+  }
+  .title-block div{
+    padding:14px 18px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .title-block div:last-child{ border-right:none; }
+  .title-block .k{
+    font-family:var(--mono); font-size:.6rem; letter-spacing:.1em;
+    color:var(--ink-dim); text-transform:uppercase; margin-bottom:6px;
+  }
+  .title-block .v{ font-family:var(--mono); font-size:.82rem; color:var(--ink); }
+  @media (max-width:700px){ .title-block{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- Section heads ---------- */
+  .head{ margin-bottom:52px; }
+  .head h2{ font-size:clamp(1.7rem, 3vw, 2.3rem); margin-top:14px; }
+
+  /* ---------- Summary ---------- */
+  .note-panel{
+    padding:36px 40px;
+    position:relative;
+  }
+  .note-panel p{ color:var(--ink-dim); font-size:1.05rem; max-width:70ch; }
+  .note-panel .quote-mark{
+    font-family:var(--mono); color:var(--accent); font-size:.7rem;
+    letter-spacing:.1em; margin-bottom:14px; display:block;
+  }
+
+  /* ---------- Education ---------- */
+  .spec-table{ width:100%; border-collapse:collapse; }
+  .spec-table tr{ border-bottom:1px solid var(--line); }
+  .spec-table tr:last-child{ border-bottom:none; }
+  .spec-table td{ padding:18px 0; vertical-align:top; }
+  .spec-table td:first-child{
+    font-family:var(--mono); font-size:.72rem; color:var(--accent-2);
+    letter-spacing:.08em; width:220px; text-transform:uppercase;
+  }
+  .spec-table td:last-child{ color:var(--ink); font-size:.98rem; }
+  .coursework{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+  .coursework span{
+    font-family:var(--mono); font-size:.72rem; color:var(--ink-dim);
+    border:1px solid var(--line); padding:6px 10px; border-radius:var(--radius);
+  }
+
+  /* ---------- Experience ---------- */
+  .exp-card{ padding:36px 40px; }
+  .exp-top{ display:flex; justify-content:space-between; align-items:baseline; gap:20px; flex-wrap:wrap; margin-bottom:18px; }
+  .exp-top h3{ font-size:1.3rem; }
+  .exp-top .role{ color:var(--accent-2); font-family:var(--mono); font-size:.8rem; margin-top:4px; }
+  .exp-top .dates{ font-family:var(--mono); font-size:.75rem; color:var(--ink-dim); border:1px solid var(--line); padding:6px 12px; border-radius:var(--radius); white-space:nowrap; }
+  .exp-card ul{ display:flex; flex-direction:column; gap:12px; }
+  .exp-card li{ color:var(--ink-dim); position:relative; padding-left:22px; font-size:.98rem; }
+  .exp-card li::before{ content:"—"; position:absolute; left:0; color:var(--accent); }
+
+  /* ---------- Projects ---------- */
+  .proj-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line); }
+  .proj-card{ background:var(--bg-panel); padding:32px 28px; display:flex; flex-direction:column; }
+  .proj-ref{ font-family:var(--mono); color:var(--accent); font-weight:700; font-size:1.1rem; margin-bottom:16px; }
+  .proj-card h3{ font-size:1.12rem; margin-bottom:6px; line-height:1.25; }
+  .proj-card .dates{ font-family:var(--mono); font-size:.68rem; color:var(--ink-dim); letter-spacing:.05em; margin-bottom:18px; }
+  .proj-card ul{ display:flex; flex-direction:column; gap:10px; flex:1; }
+  .proj-card li{ color:var(--ink-dim); font-size:.88rem; position:relative; padding-left:16px; }
+  .proj-card li::before{ content:"·"; position:absolute; left:0; color:var(--accent-2); font-weight:700; }
+  @media (max-width:900px){ .proj-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Skills BOM ---------- */
+ .bom-head{
+  display:grid; grid-template-columns:280px 1fr;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-dim); padding:14px 40px; border-bottom:1px solid var(--line);
+}
+.bom-row{
+  display:grid; grid-template-columns:280px 1fr;
+  padding:24px 40px; border-bottom:1px solid var(--line); gap:24px;
+  align-items:start;
+}
+.bom-row:last-child{ border-bottom:none; }
+.bom-row .ref{ font-family:var(--mono); color:var(--accent); font-weight:700; }
+.bom-row .cat{ font-family:var(--mono); font-size:.95rem; color:var(--ink); }
+.bom-row .parts{ color:var(--ink-dim); font-size:.92rem; }
+  @media (max-width:700px){
+    .bom-head{ display:none; }
+    .bom-row{ grid-template-columns:1fr; gap:6px; padding:20px 24px; }
+  }
+
+  /* ---------- Contact / Footer ---------- */
+  #contact{ padding-bottom:80px; }
+  .contact-panel{ padding:56px 48px; text-align:left; }
+  .contact-panel .eyebrow{ margin-bottom:18px; }
+  .contact-panel h2{ font-size:clamp(1.9rem,4vw,2.6rem); max-width:16ch; margin-bottom:22px;}
+  .contact-panel p{ color:var(--ink-dim); max-width:52ch; margin-bottom:30px; }
+  .contact-links{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:48px;}
+  .contact-links a{
+    font-family:var(--mono); font-size:.82rem;
+    border:1px solid var(--accent-2); color:var(--accent-2);
+    padding:12px 20px; border-radius:var(--radius);
+    transition:background .2s ease, color .2s ease;
+  }
+  .contact-links a:hover{ background:var(--accent-2); color:var(--bg-panel-2); }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding-top:24px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:var(--mono); font-size:.68rem; color:var(--ink-dim); letter-spacing:.05em;
+  }
+
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+  <!-- Desktop rail nav -->
+  <div class="rail">
+    <div class="mark">AC</div>
+    <nav id="rail-nav">
+      <a href="#profile" class="num-link"><span class="num">01</span>PROFILE</a>
+      <a href="#summary" class="num-link"><span class="num">02</span>SUMMARY</a>
+      <a href="#education" class="num-link"><span class="num">03</span>EDUCATION</a>
+      <a href="#experience" class="num-link"><span class="num">04</span>EXPERIENCE</a>
+      <a href="#projects" class="num-link"><span class="num">05</span>PROJECTS</a>
+      <a href="#skills" class="num-link"><span class="num">06</span>SKILLS</a>
+      <a href="#contact" class="num-link"><span class="num">07</span>CONTACT</a>
+    </nav>
+    <div class="foot-tag">REV 2026.08</div>
+  </div>
+
+  <!-- Mobile top bar -->
+  <div class="mobile-bar">
+    <div class="mark">AC</div>
+    <button class="menu-btn" id="menuBtn">MENU</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#profile"><span class="num">01</span>Profile</a>
+    <a href="#summary"><span class="num">02</span>Summary</a>
+    <a href="#education"><span class="num">03</span>Education</a>
+    <a href="#experience"><span class="num">04</span>Experience</a>
+    <a href="#projects"><span class="num">05</span>Projects</a>
+    <a href="#skills"><span class="num">06</span>Skills</a>
+    <a href="#contact"><span class="num">07</span>Contact</a>
+  </div>
+
+  <main>
+
+    <!-- 01 PROFILE / HERO -->
+    <section id="profile">
+      <div class="hero-grid">
+        <div class="hero-copy">
+  			<span class="eyebrow">Profile</span>
+  			<div class="name-row">
+    		<h1>Ameen<br>Chougle<span>.</span></h1>
+    		<div class="photo-frame sheet">
+      			<div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+      			<img src="images/profile.png" alt="Ameen Chougle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      			<div class="photo-placeholder">PHOTO<br>01</div>
+    		</div>
+  		</div>
+  <p>Computer Engineering student building reliable systems across hardware and software boundaries — from embedded C on STM32 to digital signal processing on Arm platforms.</p>
+        </div>
+
+        <div class="scope sheet">
+          <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+          <div class="scope-head"><span>CH1 · SIGNAL</span><span>2027 GRAD</span></div>
+          <svg viewBox="0 0 340 180" preserveAspectRatio="none">
+            <path class="wave-path b" d="M10,140 L50,140 L50,80 L90,80 L90,140 L130,140 L130,60 L170,60 L170,140 L210,140 L210,90 L250,90 L250,140 L290,140 L290,70 L330,70" />
+            <path class="wave-path" d="M10,90 Q60,90 90,50 T170,50 T250,50 T330,50" />
+            <circle class="scope-cursor" r="4" cx="0" cy="0" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 SUMMARY -->
+    <section id="summary">
+      <div class="head reveal">
+        <span class="eyebrow">Summary</span>
+        <h2>Professional Summary</h2>
+      </div>
+      <div class="sheet note-panel reveal">
+        <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+        <span class="quote-mark">// design intent</span>
+        <p>Strong foundation in software development, embedded systems, and problem-solving — programming in C, C++, and Java to develop reliable systems across hardware and software boundaries. Hands-on with microcontrollers, Embedded C, debugging, and system-level testing, backed by a solid grasp of data structures, algorithms, and performance trade-offs. Collaborative, detail-oriented, and motivated to contribute to technically rigorous engineering teams building scalable, efficient systems.</p>
+      </div>
+    </section>
+
+    <!-- 03 EDUCATION -->
+    <section id="education">
+      <div class="head reveal">
+        <span class="eyebrow">Education</span>
+        <h2>Academic record</h2>
+      </div>
+      <div class="sheet reveal" style="padding:36px 40px;">
+        <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+        <table class="spec-table">
+          <tr>
+            <td>Institution</td>
+            <td>University of Texas at Dallas</td>
+          </tr>
+          <tr>
+            <td>Degree</td>
+            <td>Bachelor of Science, Computer Engineering — GPA 3.84</td>
+          </tr>
+          <tr>
+            <td>Graduation</td>
+            <td>May 2027</td>
+          </tr>
+          <tr>
+            <td>Coursework</td>
+            <td>
+              Digital Circuits · Digital Systems · Signals and Systems · Electrical Network Analysis
+              <div class="coursework">
+                <!-- <span>Digital Circuits</span>
+                <span>Digital Systems</span>
+                <span>Signals &amp; Systems</span>
+                <span>Electrical Network Analysis</span> -->
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    
+
+    <!-- 05 PROJECTS -->
+    <section id="projects">
+      <div class="head reveal">
+        <span class="eyebrow">Projects &amp; Certifications</span>
+        <h2>Component reference</h2>
+      </div>
+      <div class="proj-grid reveal">
+        <div class="proj-card">
+          <div class="proj-ref">U1</div>
+          <h3>IEEE Robotics — Electrical Team Member</h3>
+          <div class="dates">AUG 2025 — CURRENT</div>
+          <ul>
+            <li>Programmed an STM32F411CEU6 microcontroller in Embedded C to control sensors, actuators, and peripheral interfaces.</li>
+            <li>Developed firmware for time-of-flight sensors, standard servos, and analog servos with real-time control and signal handling.</li>
+            <li>Performed soldering, hardware bring-up, and debugging to validate electrical and software operation.</li>
+            <li>Contributed to an accessory PCB, coordinating hardware requirements with embedded software needs.</li>
+          </ul>
+        </div>
+        <div class="proj-card">
+          <div class="proj-ref">U2</div>
+          <h3>Optimize Drive — To Be Patented</h3>
+          <div class="dates">JUN 2025 — CURRENT</div>
+          <ul>
+            <li>Designed and prototyped an embedded system integrating microcontrollers and sensors for reliable data acquisition.</li>
+            <li>Implemented ADC-based data collection and processing logic in Embedded C, validating timing, accuracy, and robustness.</li>
+            <li>Debugged hardware–software interactions and iteratively improved system performance through structured testing.</li>
+            <li>Documented system architecture, software behavior, and testing results for design reviews.</li>
+          </ul>
+        </div>
+        <div class="proj-card">
+          <div class="proj-ref">U3</div>
+          <h3>Digital Signal Processing Certification</h3>
+          <div class="dates">JUN 2025 — CURRENT</div>
+          <ul>
+            <li>Implemented FIR, IIR, and FFT-based DSP algorithms on Arm-based platforms for real-time processing.</li>
+            <li>Analyzed sampling, reconstruction, aliasing, and frequency-domain behavior mathematically and experimentally.</li>
+            <li>Evaluated latency, noise sensitivity, and power efficiency trade-offs to support system-level decisions.</li>
+          </ul>
+        </div>
+		<div class="proj-card">
+  		<div class="proj-ref">U4</div>
+  		<h3>Project Title</h3>
+  		<div class="dates">MONTH YYYY — MONTH YYYY</div>
+ 		<ul>
+    		<li>Describe what you built or the problem you solved.</li>
+    		<li>Call out a specific tool, language, or technique you used.</li>
+    		<li>Mention a result, metric, or outcome if you have one.</li>
+  		</ul>
+	  </div>
+	 <div class="proj-card">
+  		<div class="proj-ref">U5</div>
+  		<h3>Project Title</h3>
+  		<div class="dates">MONTH YYYY — MONTH YYYY</div>
+ 		<ul>
+    		<li>Describe what you built or the problem you solved.</li>
+    		<li>Call out a specific tool, language, or technique you used.</li>
+    		<li>Mention a result, metric, or outcome if you have one.</li>
+  		</ul>
+	  </div>
+	 <div class="proj-card">
+  		<div class="proj-ref">U6</div>
+  		<h3>Project Title</h3>
+  		<div class="dates">MONTH YYYY — MONTH YYYY</div>
+ 		<ul>
+    		<li>Describe what you built or the problem you solved.</li>
+    		<li>Call out a specific tool, language, or technique you used.</li>
+    		<li>Mention a result, metric, or outcome if you have one.</li>
+  		</ul>
+	  </div>
+      </div>
+    </section>
+
+    <!-- 06 SKILLS -->
+    <section id="skills">
+      <div class="head reveal">
+        <span class="eyebrow">Technical Skills</span>
+        <h2>Toolchain</h2>
+      </div>
+      <div class="sheet reveal">
+        <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+        <div class="bom-head"><span>Category</span><span>Parts</span></div>
+        <div class="bom-row">
+          <div class="cat">Programming / Software</div>
+          <div class="parts">C · Embedded C · Java · Low-level firmware development · Debugging &amp; testing</div>
+        </div>
+        <div class="bom-row">
+          <div class="cat">Embedded &amp; Systems</div>
+          <div class="parts">STM32 microcontrollers · Peripheral interfacing (ADC, sensors, actuators) · Real-time control logic · Hardware–software integration</div>
+        </div>
+        <div class="bom-row">
+          <div class="cat">Tools &amp; Technologies</div>
+          <div class="parts">Arm-based microcontrollers · KiCad (schematics, PCB design) · Fusion 360 (mechanical / system modeling)</div>
+        </div>
+      </div>
+    </section>
+
+	<!-- 04 EXPERIENCE -->
+    <section id="experience">
+      <div class="head reveal">
+        <span class="eyebrow">Experience</span>
+        <h2>Experience</h2>
+      </div>
+      <div class="sheet exp-card reveal">
+        <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+        <div class="exp-top">
+          <div>
+            <h3>My Tutoring Spot</h3>
+            <div class="role">Lead Tutor</div>
+          </div>
+          <div class="dates">JUL 2025 — CURRENT</div>
+        </div>
+        <ul>
+          <li>Explained technical and mathematical concepts clearly, strengthening communication skills essential for collaborative software engineering teams.</li>
+          <li>Structured problem-solving approaches and validated solutions, reinforcing analytical rigor and attention to detail.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 07 CONTACT -->
+    <section id="contact">
+      <div class="sheet contact-panel reveal">
+        <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+        <span class="eyebrow">Contact</span>
+        <h2>Let's build something reliable.</h2>
+        <p>Open to embedded software, firmware, and hardware-adjacent engineering roles. Reach out directly or connect on LinkedIn.</p>
+        <div class="contact-links">
+          <a href="mailto:ameenchougle@gmail.com">ameenchougle@gmail.com</a>
+          <a href="https://www.linkedin.com/in/ameen-chougle" target="_blank" rel="noopener">linkedin.com/in/ameen-chougle</a>
+        </div>
+        <footer>
+          <span>© 2026 AMEEN CHOUGLE</span>
+          <span>PLANO, TEXAS · DRAWING SET COMPLETE</span>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    menuBtn.textContent = mobileMenu.classList.contains('open') ? 'CLOSE' : 'MENU';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuBtn.textContent = 'MENU';
+  }));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('main section[id]');
+  const railLinks = document.querySelectorAll('.rail nav a');
+  const navIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector('.rail nav a[href="#' + entry.target.id + '"]');
+      if(!link) return;
+      if(entry.isIntersecting){
+        railLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => navIo.observe(s));
+</script>
+
+</body>
 </html>
