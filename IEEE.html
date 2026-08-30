@@ -913,13 +913,13 @@
             This year's competition robot needed to do more than just drive from point A to point B. It had to
             physically move two containers across the playing field, place a beacon at a marked location, tell
             two different types of icosahedron elements apart, sort them, and release each one into the correct
-            container — all without any manual intervention once the run started.
+            container, all without any manual intervention once the run started.
           </p>
           <p>
             To make that possible, the team split into three subteams: software, hardware, and electrical. My
             focus was on the electrical side, where the core problem was building a circuit-board system that
             could reliably control both the robot's drivetrain and every peripheral device riding on top of it —
-            servos, distance sensors, a magnetometer, and a light sensor — without any single component's wiring
+            servos, distance sensors, a magnetometer, and a light sensor, without any single component's wiring
             or timing interfering with another's.
           </p>
 
@@ -937,7 +937,7 @@
 
           <!-- CHANGE -->
           <p>
-            My first responsibility was planning the overall peripherals architecture — deciding which sensors
+            My first responsibility was planning the overall peripherals architecture. This included deciding which sensors
             and actuators the robot actually needed, how they'd be wired, and how the STM32 would talk to each
             of them without conflicts on shared communication lines. As competition priorities shifted and the
             timeline tightened, I moved from architecture into hands-on execution: designing, wiring, and
@@ -945,7 +945,7 @@
             team's chosen STM32 microcontroller.
           </p>
           <p>
-            Rather than treating that board as a one-off fix, I built it to be debuggable — clearly labeled
+            Rather than treating that board as a one-off fix, I built it to be debuggable. I made it clearly labeled
             headers, isolated power runs for the higher-draw servos, and enough slack in the layout that a
             single failing sensor could be swapped without re-wiring the whole board. That decision paid off
             repeatedly during testing, when individual components needed to be pulled and replaced without
