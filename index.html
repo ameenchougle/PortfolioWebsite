@@ -66,6 +66,16 @@
 
   h1,h2,h3{ font-family:var(--display); font-weight:600; letter-spacing:-0.01em; }
 
+  /* ---------- Fixed background waveform ---------- */
+  .bg-scope{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:.28;
+    pointer-events:none;
+  }
+  .bg-scope svg{ width:100%; height:100%; display:block; }
+
   /* ---------- Corner registration marks (used on panels) ---------- */
   .sheet{
     position:relative;
@@ -104,8 +114,11 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    padding:28px 0;
+    padding:20px 0;
+    overflow-y:auto;
+    scrollbar-width:none;
   }
+  .rail::-webkit-scrollbar{ display:none; }
   .rail .mark{
     width:42px; height:42px;
     border:1px solid var(--accent);
@@ -113,10 +126,10 @@
     display:flex; align-items:center; justify-content:center;
     font-family:var(--mono); font-weight:700; font-size:.85rem;
     color:var(--accent);
-    margin-bottom:40px;
+    margin-bottom:24px;
     flex-shrink:0;
   }
-  .rail nav{ display:flex; flex-direction:column; gap:26px; align-items:center; flex:1;}
+  .rail nav{ display:flex; flex-direction:column; gap:16px; align-items:center; flex-shrink:0;}
   .rail nav a{
     font-family:var(--mono);
     font-size:.62rem;
@@ -133,6 +146,7 @@
   .rail .foot-tag{
     font-family:var(--mono); font-size:.6rem; color:var(--ink-dim);
     writing-mode:vertical-rl; opacity:.5; letter-spacing:.1em;
+    margin-top:24px; flex-shrink:0;
   }
 
   .mobile-bar{
@@ -173,63 +187,62 @@
   main{ margin-left:88px; }
   section{ padding:64px 64px; max-width:1440px; margin:0 auto; }
 
-@media (max-width:900px){
-  section{ padding:48px 24px; }
-}
+  @media (max-width:900px){
+    .rail{ display:none; }
+    .mobile-bar{ display:flex; }
+    main{ margin-left:0; padding-top:56px; }
+    section{ padding:48px 24px; }
+  }
 
   /* ---------- Hero ---------- */
   .hero-grid{
     display:grid;
-    grid-template-columns:1.3fr 1fr;
+    grid-template-columns: 1fr auto;
+    align-items:center;
     gap:48px;
-    align-items:end;
     min-height:70vh;
   }
-  .name-row{
-  display:flex;
-  align-items:flex-end;
-  gap:22px;
-  margin:18px 0 20px;
-  flex-wrap:wrap;
-}
-.hero-copy h1{
-  font-size:clamp(2.6rem, 6vw, 4.6rem);
-  line-height:1.02;
-  margin:0;
-}
-.hero-copy h1 span{ color:var(--accent); }
+  @media (max-width:640px){
+    .hero-grid{ grid-template-columns: 1fr; }
+  }
 
-.photo-frame{
-  width:160px; height:160px;
-  flex-shrink:0;
-  margin-bottom:6px;
-  overflow:hidden;
-  position:relative;
-  border-radius:50%;
-  box-shadow:0 12px 32px rgba(0,0,0,0.45);
-}
-@media (max-width:500px){
-  .photo-frame{ width:120px; height:120px; }
-}
-.photo-frame img{
-  width:100%; height:100%;
-  object-fit:cover;
-  display:block;
-}
-.photo-placeholder{
-  display:none;
-  width:100%; height:100%;
-  align-items:center; justify-content:center;
-  text-align:center;
-  font-family:var(--mono);
-  font-size:.62rem;
-  letter-spacing:.08em;
-  color:var(--ink-dim);
-  line-height:1.5;
-}
-@media (max-width:500px){
-  .photo-frame{ width:84px; height:84px; }
-}
+  .hero-copy h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.02;
+    margin:18px 0 20px;
+  }
+  .hero-copy h1 span{ color:var(--accent); }
+
+  .photo-frame{
+    width:clamp(160px, 32vw, 480px);
+    height:clamp(160px, 32vw, 480px);
+    flex-shrink:0;
+    overflow:hidden;
+    position:relative;
+    border-radius:50%;
+    box-shadow:0 12px 32px rgba(0,0,0,0.45);
+    justify-self:end;
+  }
+  @media (max-width:640px){
+    .photo-frame{ justify-self:start; }
+  }
+  .photo-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .photo-placeholder{
+    display:none;
+    width:100%; height:100%;
+    align-items:center; justify-content:center;
+    text-align:center;
+    font-family:var(--mono);
+    font-size:.62rem;
+    letter-spacing:.08em;
+    color:var(--ink-dim);
+    line-height:1.5;
+  }
+
   .hero-copy p{
     color:var(--ink-dim);
     font-size:1.05rem;
@@ -247,33 +260,24 @@
   .chip:hover{ border-color:var(--accent-2); color:var(--ink); }
   .chip .dot{ width:6px; height:6px; border-radius:50%; background:var(--accent-2); }
 
-  .scope{
-    padding:0; overflow:hidden; aspect-ratio:4/3;
-  }
-  .scope-head{
-    display:flex; justify-content:space-between; align-items:center;
-    padding:12px 16px; border-bottom:1px solid var(--line);
-    font-family:var(--mono); font-size:.65rem; color:var(--ink-dim); letter-spacing:.08em;
-  }
-  .scope svg{ width:100%; height:100%; display:block; }
   .wave-path{
     fill:none; stroke:var(--accent-2); stroke-width:2;
-    stroke-dasharray:900; stroke-dashoffset:900;
-    animation:draw 2.6s ease-out .3s forwards;
+    stroke-dasharray:14 10;
+    animation:flow 22s linear infinite;
   }
-  .wave-path.b{ stroke:var(--accent); opacity:.55; animation-delay:.6s; }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .wave-path.b{ stroke:var(--accent); opacity:.55; animation-duration:28s; animation-direction:reverse; }
+  @keyframes flow{ to{ stroke-dashoffset:-960; } }
   .scope-cursor{
     fill:var(--accent);
-    offset-path: path("M10,90 Q60,90 90,50 T170,50 T250,50 T330,50");
-    animation: travel 4.5s linear infinite;
+    offset-path: path("M0,150 Q60,150 90,80 T180,80 T270,80 T360,80 T450,80 T540,80 T630,80 T720,80 T810,80 T900,80 T1000,80");
+    animation: travel 18s linear infinite;
   }
   @keyframes travel{
     0%{ offset-distance:0%; }
     100%{ offset-distance:100%; }
   }
   @media (prefers-reduced-motion: reduce){
-    .wave-path{ animation:none; stroke-dashoffset:0; }
+    .wave-path{ animation:none; }
     .scope-cursor{ animation:none; }
   }
 
@@ -343,27 +347,39 @@
   .proj-card{ background:var(--bg-panel); padding:32px 28px; display:flex; flex-direction:column; }
   .proj-ref{ font-family:var(--mono); color:var(--accent); font-weight:700; font-size:1.1rem; margin-bottom:16px; }
   .proj-card h3{ font-size:1.12rem; margin-bottom:6px; line-height:1.25; }
+  .proj-card .see-more{
+  display:inline-block;
+  margin-top:16px;
+  font-family:var(--mono);
+  font-size:.85rem;
+  color:var(--accent-2);
+  transition:color .2s ease;
+}
+.proj-card .see-more:hover{
+  color:var(--accent);
+}
+  .proj-card h3 a{ transition:color .2s ease; }
+  .proj-card h3 a:hover{ color:var(--accent-2); }
   .proj-card .dates{ font-family:var(--mono); font-size:.68rem; color:var(--ink-dim); letter-spacing:.05em; margin-bottom:18px; }
   .proj-card ul{ display:flex; flex-direction:column; gap:10px; flex:1; }
   .proj-card li{ color:var(--ink-dim); font-size:.88rem; position:relative; padding-left:16px; }
   .proj-card li::before{ content:"·"; position:absolute; left:0; color:var(--accent-2); font-weight:700; }
   @media (max-width:900px){ .proj-grid{ grid-template-columns:1fr; } }
 
-  /* ---------- Skills BOM ---------- */
- .bom-head{
-  display:grid; grid-template-columns:280px 1fr;
-  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--ink-dim); padding:14px 40px; border-bottom:1px solid var(--line);
-}
-.bom-row{
-  display:grid; grid-template-columns:280px 1fr;
-  padding:24px 40px; border-bottom:1px solid var(--line); gap:24px;
-  align-items:start;
-}
-.bom-row:last-child{ border-bottom:none; }
-.bom-row .ref{ font-family:var(--mono); color:var(--accent); font-weight:700; }
-.bom-row .cat{ font-family:var(--mono); font-size:.95rem; color:var(--ink); }
-.bom-row .parts{ color:var(--ink-dim); font-size:.92rem; }
+  /* ---------- Skills Toolchain ---------- */
+  .bom-head{
+    display:grid; grid-template-columns:280px 1fr;
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-dim); padding:14px 40px; border-bottom:1px solid var(--line);
+  }
+  .bom-row{
+    display:grid; grid-template-columns:280px 1fr;
+    padding:24px 40px; border-bottom:1px solid var(--line); gap:24px;
+    align-items:start;
+  }
+  .bom-row:last-child{ border-bottom:none; }
+  .bom-row .cat{ font-family:var(--mono); font-size:.95rem; color:var(--ink); }
+  .bom-row .parts{ color:var(--ink-dim); font-size:.92rem; }
   @media (max-width:700px){
     .bom-head{ display:none; }
     .bom-row{ grid-template-columns:1fr; gap:6px; padding:20px 24px; }
@@ -397,6 +413,15 @@
 </head>
 <body>
 
+  <!-- Fixed background waveform -->
+  <div class="bg-scope" aria-hidden="true">
+    <svg viewBox="0 0 1000 300" preserveAspectRatio="none">
+      <path class="wave-path b" d="M0,220 L60,220 L60,120 L120,120 L120,220 L180,220 L180,90 L240,90 L240,220 L300,220 L300,140 L360,140 L360,220 L420,220 L420,110 L480,110 L480,220 L540,220 L540,150 L600,150 L600,220 L660,220 L660,100 L720,100 L720,220 L780,220 L780,130 L840,130 L840,220 L900,220 L900,90 L1000,90" />
+      <path class="wave-path" d="M0,150 Q60,150 90,80 T180,80 T270,80 T360,80 T450,80 T540,80 T630,80 T720,80 T810,80 T900,80 T1000,80" />
+      <circle class="scope-cursor" r="6" cx="0" cy="0" />
+    </svg>
+  </div>
+
   <!-- Desktop rail nav -->
   <div class="rail">
     <div class="mark">AC</div>
@@ -404,12 +429,12 @@
       <a href="#profile" class="num-link"><span class="num">01</span>PROFILE</a>
       <a href="#summary" class="num-link"><span class="num">02</span>SUMMARY</a>
       <a href="#education" class="num-link"><span class="num">03</span>EDUCATION</a>
-      <a href="#experience" class="num-link"><span class="num">04</span>EXPERIENCE</a>
-      <a href="#projects" class="num-link"><span class="num">05</span>PROJECTS</a>
-      <a href="#skills" class="num-link"><span class="num">06</span>SKILLS</a>
+      <a href="#projects" class="num-link"><span class="num">04</span>PROJECTS</a>
+      <a href="#certifications"><span class="num">05</span>CERTIFICATIONS</a>
+      <a href="#skills" class="num-link"><span class="num">05</span>SKILLS</a>
+      <a href="#experience" class="num-link"><span class="num">06</span>EXPERIENCE</a>
       <a href="#contact" class="num-link"><span class="num">07</span>CONTACT</a>
     </nav>
-    <div class="foot-tag">REV 2026.08</div>
   </div>
 
   <!-- Mobile top bar -->
@@ -421,9 +446,10 @@
     <a href="#profile"><span class="num">01</span>Profile</a>
     <a href="#summary"><span class="num">02</span>Summary</a>
     <a href="#education"><span class="num">03</span>Education</a>
-    <a href="#experience"><span class="num">04</span>Experience</a>
-    <a href="#projects"><span class="num">05</span>Projects</a>
-    <a href="#skills"><span class="num">06</span>Skills</a>
+    <a href="#projects"><span class="num">04</span>Projects</a>
+    <a href="#certifications"><span class="num">05</span>CERTIFICATIONS</a>
+    <a href="#skills"><span class="num">05</span>Skills</a>
+    <a href="#experience"><span class="num">06</span>Experience</a>
     <a href="#contact"><span class="num">07</span>Contact</a>
   </div>
 
@@ -433,26 +459,20 @@
     <section id="profile">
       <div class="hero-grid">
         <div class="hero-copy">
-  			<span class="eyebrow">Profile</span>
-  			<div class="name-row">
-    		<h1>Ameen<br>Chougle<span>.</span></h1>
-    		<div class="photo-frame sheet">
-      			<div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
-      			<img src="images/profile.png" alt="Ameen Chougle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      			<div class="photo-placeholder">PHOTO<br>01</div>
-    		</div>
-  		</div>
-  <p>Computer Engineering student building reliable systems across hardware and software boundaries — from embedded C on STM32 to digital signal processing on Arm platforms.</p>
+          <span class="eyebrow">Profile</span>
+          <h1>Ameen<br>Chougle<span>.</span></h1>
+          <p>Computer Engineering student building reliable systems across hardware and software boundaries — from embedded C on STM32 to digital signal processing on Arm platforms.</p>
+          <div class="chip-row">
+            <span class="chip"><span class="dot"></span>Plano, Texas</span>
+            <span class="chip"><span class="dot"></span>ameenchougle@gmail.com</span>
+            <a class="chip" href="https://www.linkedin.com/in/ameen-chougle" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
+          </div>
         </div>
 
-        <div class="scope sheet">
+        <div class="photo-frame sheet">
           <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
-          <div class="scope-head"><span>CH1 · SIGNAL</span><span>2027 GRAD</span></div>
-          <svg viewBox="0 0 340 180" preserveAspectRatio="none">
-            <path class="wave-path b" d="M10,140 L50,140 L50,80 L90,80 L90,140 L130,140 L130,60 L170,60 L170,140 L210,140 L210,90 L250,90 L250,140 L290,140 L290,70 L330,70" />
-            <path class="wave-path" d="M10,90 Q60,90 90,50 T170,50 T250,50 T330,50" />
-            <circle class="scope-cursor" r="4" cx="0" cy="0" />
-          </svg>
+          <img src="images/profile.png" alt="Ameen Chougle" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="photo-placeholder">PHOTO<br>01</div>
         </div>
       </div>
     </section>
@@ -474,7 +494,7 @@
     <section id="education">
       <div class="head reveal">
         <span class="eyebrow">Education</span>
-        <h2>Academic record</h2>
+        <h2>Academic Record</h2>
       </div>
       <div class="sheet reveal" style="padding:36px 40px;">
         <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
@@ -485,7 +505,7 @@
           </tr>
           <tr>
             <td>Degree</td>
-            <td>Bachelor of Science, Computer Engineering — GPA 3.84</td>
+            <td>Bachelor of Science, Computer Engineering — GPA 3.81</td>
           </tr>
           <tr>
             <td>Graduation</td>
@@ -495,25 +515,18 @@
             <td>Coursework</td>
             <td>
               Digital Circuits · Digital Systems · Signals and Systems · Electrical Network Analysis
-              <div class="coursework">
-                <!-- <span>Digital Circuits</span>
-                <span>Digital Systems</span>
-                <span>Signals &amp; Systems</span>
-                <span>Electrical Network Analysis</span> -->
-              </div>
+              · Embedded Systems · Computer Architecture · Electronic Circuits · Electronic Devices
             </td>
           </tr>
         </table>
       </div>
     </section>
 
-    
-
     <!-- 05 PROJECTS -->
     <section id="projects">
       <div class="head reveal">
-        <span class="eyebrow">Projects &amp; Certifications</span>
-        <h2>Component reference</h2>
+        <span class="eyebrow">Projects</span>
+        <h2>Component Reference</h2>
       </div>
       <div class="proj-grid reveal">
         <div class="proj-card">
@@ -526,6 +539,7 @@
             <li>Performed soldering, hardware bring-up, and debugging to validate electrical and software operation.</li>
             <li>Contributed to an accessory PCB, coordinating hardware requirements with embedded software needs.</li>
           </ul>
+          <a href="IEEE.html" class="see-more">See more →</a>
         </div>
         <div class="proj-card">
           <div class="proj-ref">U2</div>
@@ -540,46 +554,40 @@
         </div>
         <div class="proj-card">
           <div class="proj-ref">U3</div>
-          <h3>Digital Signal Processing Certification</h3>
-          <div class="dates">JUN 2025 — CURRENT</div>
+          <h3>Dallas Formula Racing SAE</h3>
+          <div class="dates">JAN 2026 — CURRENT</div>
           <ul>
-            <li>Implemented FIR, IIR, and FFT-based DSP algorithms on Arm-based platforms for real-time processing.</li>
-            <li>Analyzed sampling, reconstruction, aliasing, and frequency-domain behavior mathematically and experimentally.</li>
-            <li>Evaluated latency, noise sensitivity, and power efficiency trade-offs to support system-level decisions.</li>
+            <li>Assigned to the Data Acquisition subteam and tasked with designing a linear potentiometer sensor for the car's suspension system, to measure suspension travel for the car's data acquisition pipeline.</li>
+            <li>Worked from the team's existing suspension sensor signal-chain design — an anti-aliasing filter and FIR digital filter running on an STM32, sampling through a sigma-delta ADC and outputting over CAN — to define the sensor's electrical requirements.</li>
+            <li>Since the car's overall design was largely finalized for the season, full integration wasn't feasible this cycle, so the sensor was scoped for next year's chassis instead.</li>
+            <li>Implementation is planned for next year's car and hasn't been carried out yet, making this year's contribution primarily design and specification work.</li>
           </ul>
         </div>
-		<div class="proj-card">
-  		<div class="proj-ref">U4</div>
-  		<h3>Project Title</h3>
-  		<div class="dates">MONTH YYYY — MONTH YYYY</div>
- 		<ul>
-    		<li>Describe what you built or the problem you solved.</li>
-    		<li>Call out a specific tool, language, or technique you used.</li>
-    		<li>Mention a result, metric, or outcome if you have one.</li>
-  		</ul>
-	  </div>
-	 <div class="proj-card">
-  		<div class="proj-ref">U5</div>
-  		<h3>Project Title</h3>
-  		<div class="dates">MONTH YYYY — MONTH YYYY</div>
- 		<ul>
-    		<li>Describe what you built or the problem you solved.</li>
-    		<li>Call out a specific tool, language, or technique you used.</li>
-    		<li>Mention a result, metric, or outcome if you have one.</li>
-  		</ul>
-	  </div>
-	 <div class="proj-card">
-  		<div class="proj-ref">U6</div>
-  		<h3>Project Title</h3>
-  		<div class="dates">MONTH YYYY — MONTH YYYY</div>
- 		<ul>
-    		<li>Describe what you built or the problem you solved.</li>
-    		<li>Call out a specific tool, language, or technique you used.</li>
-    		<li>Mention a result, metric, or outcome if you have one.</li>
-  		</ul>
-	  </div>
       </div>
     </section>
+
+    <!-- 05B CERTIFICATIONS -->
+<section id="certifications">
+  <div class="head reveal">
+    <span class="eyebrow">Certifications</span>
+    <h2>Credentials</h2>
+  </div>
+  <div class="sheet exp-card reveal">
+    <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+    <div class="exp-top">
+      <div>
+        <h3>Digital Signal Processing Certification</h3>
+        <div class="role">ARM Technologies</div>
+      </div>
+      <div class="dates">JAN 2026</div>
+    </div>
+    <ul>
+      <li>Implemented FIR, IIR, and FFT-based DSP algorithms on Arm-based platforms for real-time processing.</li>
+      <li>Analyzed sampling, reconstruction, aliasing, and frequency-domain behavior mathematically and experimentally.</li>
+      <li>Evaluated latency, noise sensitivity, and power efficiency trade-offs to support system-level decisions.</li>
+    </ul>
+  </div>
+</section>
 
     <!-- 06 SKILLS -->
     <section id="skills">
@@ -600,16 +608,30 @@
         </div>
         <div class="bom-row">
           <div class="cat">Tools &amp; Technologies</div>
-          <div class="parts">Arm-based microcontrollers · KiCad (schematics, PCB design) · Fusion 360 (mechanical / system modeling)</div>
+          <div class="parts">Arm-based microcontrollers · KiCad (schematics, PCB design) · Fusion 360 (mechanical / system modeling) · LTSpice (circuit simulation) · Qucs-s (circuit simulation) </div>
         </div>
       </div>
     </section>
 
-	<!-- 04 EXPERIENCE -->
+    <!-- 04 EXPERIENCE -->
     <section id="experience">
       <div class="head reveal">
         <span class="eyebrow">Experience</span>
         <h2>Experience</h2>
+      </div>
+      <div class="sheet exp-card reveal">
+        <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
+        <div class="exp-top">
+          <div>
+            <h3>Handshake AI</h3>
+            <div class="role">AI Trainer</div>
+          </div>
+          <div class="dates">JUN 2026 - JUL 2026</div>
+        </div>
+        <ul>
+          <li>Designed and built analog circuit simulations in LTSpice and Qucs-S, ranging from basic passive networks to more complex active circuits.</li>
+          <li>Executed simulation runs to verify circuit behavior against expected outcomes, checking for correctness before tasks were submitted or finalized.</li>
+        </ul>
       </div>
       <div class="sheet exp-card reveal">
         <div class="reg tl"></div><div class="reg tr"></div><div class="reg bl"></div><div class="reg br"></div>
@@ -621,7 +643,7 @@
           <div class="dates">JUL 2025 — CURRENT</div>
         </div>
         <ul>
-          <li>Explained technical and mathematical concepts clearly, strengthening communication skills essential for collaborative software engineering teams.</li>
+          <li>Explained technical and mathematical concepts clearly, strengthening communication skills essential for collaborative engineering teams.</li>
           <li>Structured problem-solving approaches and validated solutions, reinforcing analytical rigor and attention to detail.</li>
         </ul>
       </div>
