@@ -664,7 +664,7 @@
         <footer>
           <span>© 2026 AMEEN CHOUGLE</span>
           <span>PLANO, TEXAS · DRAWING SET COMPLETE</span>
-          <!--<span id="viewCount">— views</span> -->
+          <span id="viewCount">—</span> 
         </footer>
       </div>
     </section>
@@ -720,7 +720,7 @@ async function updateViews() {
     const data = await res.json();
 
     if (isNew) localStorage.setItem('lastCounted', today);
-    el.textContent = data.count.toLocaleString() + ' views';
+    el.textContent = data.count.toLocaleString();
   } catch (err) {
     el.textContent = ''; // fail quietly if the counter is unreachable
   }
