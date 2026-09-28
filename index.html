@@ -664,6 +664,7 @@
         <footer>
           <span>© 2026 AMEEN CHOUGLE</span>
           <span>PLANO, TEXAS · DRAWING SET COMPLETE</span>
+          <span id="viewCount">— views</span>
         </footer>
       </div>
     </section>
@@ -704,6 +705,27 @@
     });
   }, { threshold: 0.4 });
   sections.forEach(s => navIo.observe(s));
+
+  // Viewer counter
+const COUNTER_URL = 'https://script.google.com/macros/s/AKfycbyvWIfHoX_4eg_ZwpQgtFY8tfCncI1v8kyLo1D2pBqnJ7io1MFvjerEjWI9Vhx6j3pI/exec';
+
+async function updateViews() {
+  const el = document.getElementById('viewCount');
+  try {
+    // Count once per browser per day, so refreshes don't inflate the number
+    const today = new Date().toDateString();
+    const isNew = localStorage.getItem('lastCounted') !== today;
+
+    const res = await fetch(COUNTER_URL + '?new=' + (isNew ? '1' : '0'));
+    const data = await res.json();
+
+    if (isNew) localStorage.setItem('lastCounted', today);
+    el.textContent = data.count.toLocaleString() + ' views';
+  } catch (err) {
+    el.textContent = ''; // fail quietly if the counter is unreachable
+  }
+}
+updateViews();
 </script>
 
 </body>
